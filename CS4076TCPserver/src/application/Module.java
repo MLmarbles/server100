@@ -30,7 +30,7 @@ public class Module {
     }
 
     // Getter and setter for classes
-    public List<Class> getClasses() {
+    public ArrayList<Class> getClasses() {
         return classes;
     }
 
@@ -41,6 +41,9 @@ public class Module {
     // Add a class to the module
     public void addClass(Class classObj) {
         this.classes.add(classObj);
+    }
+    public boolean removeClass(Class classObj) {
+        return this.classes.remove(classObj);
     }
     
     // Custom serialization method
@@ -71,4 +74,5 @@ public class Module {
         
         return module;
     }
+
 }

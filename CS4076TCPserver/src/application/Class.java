@@ -5,14 +5,12 @@ public class Class {
     private String start;
     private String end;
     private String room;
-    private int userId;
 
-    public Class(String day, String start, String end, String room, int userId) {
+    public Class(String day, String start, String end, String room) {
         this.day = day;
         this.start = start;
         this.end = end;
         this.room = room;
-        this.userId = userId;
     }
 
     public String getDay() {
@@ -30,9 +28,12 @@ public class Class {
     public String getRoom() {
         return room;
     }
-
-    public int getUserId() {
-        return userId;
+    
+    @Override
+    public String toString() {
+        return "Day: " + day +
+                ", Time: " + start + " - " + end +
+                ", Room: " + room;
     }
     
     // Custom serialization method
@@ -41,8 +42,7 @@ public class Class {
         sb.append(day).append(";") // Append day
           .append(start).append(";") // Append start time
           .append(end).append(";") // Append end time
-          .append(room).append(";") // Append room
-          .append(userId); // Append userId
+          .append(room).append(";"); // Append room
         
         return sb.toString();
     }
@@ -54,8 +54,7 @@ public class Class {
         String start = parts[1];
         String end = parts[2];
         String room = parts[3];
-        int userId = Integer.parseInt(parts[4]);
         
-        return new Class(day, start, end, room, userId);
+        return new Class(day, start, end, room);
     }
 }
